@@ -8,9 +8,9 @@ Esse projeto esta sendo desenvolvido com as seguintes tecnologias:
 - SQLITE
 
 ## 🚀 DEVS
-Andressa
-Maxuell
-Joao juniro
-Joao Vitor
-Sandro
-Sebastiao Carlos
+Andressa,
+Maxuell,
+Joao juniro,
+Joao Vitor,
+Sandro,
+Sebastiao Carlos.
