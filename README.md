@@ -10,7 +10,7 @@ Esse projeto esta sendo desenvolvido com as seguintes tecnologias:
 ## 🚀 DEVS
 Andressa,
 Maxuell,
-Joao juniro,
-Joao Vitor,
+João Júnior,
+João Vitor,
 Sandro,
 Sebastiao Carlos.
