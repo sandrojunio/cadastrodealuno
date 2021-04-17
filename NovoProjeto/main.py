@@ -48,18 +48,23 @@ def aluno():
     Aluno.enderecoAluno.setPlaceholderText('Endereço')
 
     Aluno.Bt_Cadastrar.clicked.connect(btCadastrarAluno)
-    Aluno.Bt_Limpar.clicked.connect(btLimparAluno)
+    Aluno.Bt_Limpar.clicked.connect(btLimparAluno) 
 
 def btCadastrarAluno(self):
     a = Cadastro_Aluno()
-    a.nomeAluno = Aluno.nomeAluno.text()
-    a.nomePai = Aluno.nomePai.text()
-    a.nomeMae = Aluno.nomeMae.text()
-    a.telefoneAluno = Aluno.telefoneAluno.text()
-    a.emailAluno = Aluno.emailAluno.text()
-    a.enderecoAluno = Aluno.enderecoAluno.text()
+    try:
+        a.nomeAluno = Aluno.nomeAluno.text()
+        a.nomePai = Aluno.nomePai.text()
+        a.nomeMae = Aluno.nomeMae.text()
+        a.telefoneAluno = Aluno.telefoneAluno.text()
+        a.emailAluno = Aluno.emailAluno.text()
+        a.enderecoAluno = Aluno.enderecoAluno.text()
 
-    a.insert(nomeAluno, nomePai, nomeMae, telefoneAluno, emailAluno, enderecoAluno)
+        a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
+
+        return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
+    except:
+        return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
 
 def btLimparAluno():
     Aluno.nomeAluno.setText('')
