@@ -76,10 +76,7 @@ def consulta():
     
     
     
-    
-    
-    
-      
+     
 app=QtWidgets.QApplication([])
 Home=uic.loadUi("Home.ui")
 cadastrodealuno=uic.loadUi("cadastrodealuno.ui")

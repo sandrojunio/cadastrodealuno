@@ -11,7 +11,7 @@ class Aluno(object):
         self.nomePai = nomePai
         self.nomeMae = nomeMae
 
-    def novoAluno(self):
+    def insertAluno(self):
         banco = Banco()
         try:
             c = banco.conexao.cursor()
@@ -25,7 +25,7 @@ class Aluno(object):
         except:
             return "Error: Erro no cadastro de aluno!"
 
-    def atulizarAluno(self):
+    def updateAluno(self):
         banco = Banco()
         try:
             c = banco.conexao.cursor()
@@ -39,7 +39,7 @@ class Aluno(object):
         except:
             return "Error: Falha na alteração de usuário"
 
-    def selectEmpregados(self, matricula):
+    def selectAluno(self, matricula):
         banco = Banco()
         try:
             c = banco.conexao.cursor()
