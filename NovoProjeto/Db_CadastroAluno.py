@@ -8,9 +8,9 @@ class Cadastro_Aluno:
         conn = Conexao()
         conexao = conn.conectar()
         cursor = conexao.cursor()
-        
-        try:
 
+        try:
+            #SQL para inserir os dados no banco de dados.
             sql = 'INSERT INTO Aluno (nomeAluno, nomePai, nomeMae, telefoneAluno, emailAluno, enderecoAluno) VALUES (?, ?, ?, ? ,? ,?)'
 
             cursor.execute(sql, (nomeAluno, nomePai, nomeMae, telefoneAluno,    emailAluno, enderecoAluno))

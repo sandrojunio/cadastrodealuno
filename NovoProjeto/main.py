@@ -40,6 +40,7 @@ def aluno():
     Atividade.close()
     Consulta.close()
 
+    #Mensagem no campo vazio Ex.: Nome do aluno
     Aluno.nomeAluno.setPlaceholderText('Nome do aluno')
     Aluno.nomePai.setPlaceholderText('Nome do Pai')
     Aluno.nomeMae.setPlaceholderText('Nome da Mãe')
@@ -47,12 +48,20 @@ def aluno():
     Aluno.emailAluno.setPlaceholderText('E-mail')
     Aluno.enderecoAluno.setPlaceholderText('Endereço')
 
+    #Chamando botões da view, e chamando funções de cadastro e limpar
     Aluno.Bt_Cadastrar.clicked.connect(btCadastrarAluno)
     Aluno.Bt_Limpar.clicked.connect(btLimparAluno) 
 
+# Evento de cadastrar
 def btCadastrarAluno(self):
+    
+    # Chamando a classe #Db_CadastroAluno
     a = Cadastro_Aluno()
+
+    # Try, para avisar dos errinhos e.e
     try:
+
+        #Atrbuindo os valores dos campos para imputar no banco de dados
         a.nomeAluno = Aluno.nomeAluno.text()
         a.nomePai = Aluno.nomePai.text()
         a.nomeMae = Aluno.nomeMae.text()
@@ -60,12 +69,14 @@ def btCadastrarAluno(self):
         a.emailAluno = Aluno.emailAluno.text()
         a.enderecoAluno = Aluno.enderecoAluno.text()
 
+        # Executando a função de inserção no manco de dados. 
         a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
 
         return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
     except:
         return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
 
+#Removendo o valores dos campos através do botão LIMPAR
 def btLimparAluno():
     Aluno.nomeAluno.setText('')
     Aluno.nomePai.setText('')
