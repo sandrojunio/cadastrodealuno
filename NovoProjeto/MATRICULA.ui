@@ -11,12 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Matricula</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(230, 230, 230);</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Bt_CadastroAluno">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -37,7 +37,7 @@
     <string>Cadastro de Aluno</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="Bt_CadastroAssunto">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -58,7 +58,7 @@
     <string>Cadastro de Assunto</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="Bt_CadastroAtividade">
    <property name="geometry">
     <rect>
      <x>490</x>
@@ -79,7 +79,7 @@
     <string>Cadastro de Atividade</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="Bt_CadastroDesempenho">
    <property name="geometry">
     <rect>
      <x>710</x>
@@ -100,7 +100,7 @@
     <string>Desempenho do Aluno</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="Bt_CadastroConsulta">
    <property name="geometry">
     <rect>
      <x>930</x>
