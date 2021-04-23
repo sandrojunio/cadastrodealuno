@@ -21,7 +21,7 @@ def consultarTudo():
         Home.tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(i[4]))
         Home.tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(i[5]))
         Home.tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(i[6]))
-        row=row+1
+        row=row+1 
 
 
 def menu():
