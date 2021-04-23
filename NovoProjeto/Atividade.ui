@@ -134,7 +134,7 @@
     <string notr="true">background-color: rgb(241, 241, 241);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="Lb_Atividade">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -144,7 +144,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="Lb_Periodo">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -154,7 +154,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_11">
+  <widget class="QPushButton" name="Bt_Cadastro">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -175,7 +175,7 @@
     <string>CADASTRAR</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_12">
+  <widget class="QPushButton" name="Bt_Limpar">
    <property name="geometry">
     <rect>
      <x>610</x>
@@ -263,7 +263,7 @@
     <string>Cadastro de Atividade</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="Box_Assunto">
    <property name="geometry">
     <rect>
      <x>460</x>
