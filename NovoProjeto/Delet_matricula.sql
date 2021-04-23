@@ -1,1 +1,1 @@
-DELETE FROM Aluno WHERE nomePai = ""
+DELETE FROM Aluno WHERE nomePai = "Benedito Flor"

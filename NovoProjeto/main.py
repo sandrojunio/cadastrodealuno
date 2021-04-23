@@ -78,7 +78,7 @@ def aluno():
     Aluno.nomeAluno.setPlaceholderText('Nome do aluno')
     Aluno.nomePai.setPlaceholderText('Nome do Pai')
     Aluno.nomeMae.setPlaceholderText('Nome da Mãe')
-    Aluno.telefoneAluno.setPlaceholderText('(00)12345-1234')
+    Aluno.telefoneAluno.setPlaceholderText('(00)9 2345-1234')
     Aluno.emailAluno.setPlaceholderText('E-mail')
     Aluno.enderecoAluno.setPlaceholderText('Endereço')
 
@@ -95,7 +95,7 @@ def btCadastrarAluno(self):
     # Try, para avisar dos errinhos e.e
     try:
 
-        #Atrbuindo os valores dos campos para imputar no banco de dados
+        #Atribuindo os valores dos campos para imputar no banco de dados
         a.nomeAluno = Aluno.nomeAluno.text()
         a.nomePai = Aluno.nomePai.text()
         a.nomeMae = Aluno.nomeMae.text()
@@ -106,12 +106,12 @@ def btCadastrarAluno(self):
         # Executando a função de inserção no manco de dados.
         if (Aluno.nomeAluno.text() != "" and Aluno.telefoneAluno.text() != "" and Aluno.emailAluno.text() != "" and Aluno.enderecoAluno.text() != ""):
             a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
+            btLimparAluno()
+            return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
+            quit()
         else:
-            return Aluno.Lb_cadastrado.setText('Erro: Preencha todos os campos obrigatórios!')
-
-        btLimparAluno()
-
-        return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
+            return Aluno.Lb_cadastrado.setText('ERRO: Preencha os campos obrigatórios')
+            quit()
     except:
         return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
 
