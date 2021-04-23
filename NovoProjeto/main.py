@@ -1,5 +1,6 @@
 from PyQt5 import uic, QtWidgets
 from Aluno import Cadastro_Aluno
+from Assunto import Cadastro_Assunto
 from Home import home_db
 
 from PyQt5 import QtGui
@@ -69,6 +70,7 @@ def menu():
 def aluno():
     menu()
     Aluno.show()
+
     Home.close()
     Assunto.close()
     Atividade.close()
@@ -112,7 +114,7 @@ def btCadastrarAluno(self):
         else:
             return Aluno.Lb_cadastrado.setText('ERRO: Preencha os campos obrigatórios')
     except:
-        return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
+        return Aluno.Lb_cadastrado.setText('Erro no cadastro, line 117!')
 
 #Removendo o valores dos campos através do botão LIMPAR
 def btLimparAluno():
@@ -131,6 +133,33 @@ def assunto():
     Aluno.close()
     Atividade.close()
     Consulta.close()
+
+    Assunto.Lb_Assunto.setPlaceholderText('Nome do assunto')
+
+    Assunto.Bt_Cadastro.clicked.connect(btCadastrarAssunto)
+
+# Evento de cadastrar
+def btCadastrarAssunto(self):
+
+    # Chamando a classe assunto
+    assunto = Cadastro_Assunto()
+
+    try:
+        #Atribuindo os valores dos campos para imputar no banco de dados
+        assunto.nomeAssunto = Assunto.Lb_Assunto.text()
+
+        if (Assunto.Lb_Assunto.text() != ""):
+            assunto.insert(assunto.nomeAssunto)
+            btLimparAssunto()
+
+            return Assunto.Lb_cadastrado.setText('Cadastrado com sucesso!')
+        else:
+            return Assunto.Lb_cadastrado.setText('ERRO: Preencha os campos obrigatórios')
+    except:
+        return Assunto.Lb_cadastrado.setText('Erro no cadastro, line 117!')
+
+def btLimparAssunto():
+    Assunto.Lb_Assunto.setText('')
 
 def atividade():
     menu()
