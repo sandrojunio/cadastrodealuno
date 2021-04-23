@@ -14,8 +14,8 @@ def consultarTudo():
     Home.tabela.setRowCount(len(sql))
     row = 0
     for i in sql:
-        Home.tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(str(i[0])))
-        Home.tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(i[1]))
+        Home.tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(i[1]))
+        Home.tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(str(i[0])))
         Home.tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(i[2]))
         Home.tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(i[3]))
         Home.tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(i[4]))
@@ -89,7 +89,7 @@ def aluno():
 # Evento de cadastrar
 def btCadastrarAluno(self):
     
-    # Chamando a classe #aluno
+    # Chamando a classe aluno
     a = Cadastro_Aluno()
 
     # Try, para avisar dos errinhos e.e
@@ -107,11 +107,10 @@ def btCadastrarAluno(self):
         if (Aluno.nomeAluno.text() != "" and Aluno.telefoneAluno.text() != "" and Aluno.emailAluno.text() != "" and Aluno.enderecoAluno.text() != ""):
             a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
             btLimparAluno()
+            
             return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
-            quit()
         else:
             return Aluno.Lb_cadastrado.setText('ERRO: Preencha os campos obrigatórios')
-            quit()
     except:
         return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
 
@@ -123,7 +122,7 @@ def btLimparAluno():
     Aluno.telefoneAluno.setText('')
     Aluno.emailAluno.setText('')
     Aluno.enderecoAluno.setText('')
-    
+   
 def assunto():
     menu()
     Assunto.show()
