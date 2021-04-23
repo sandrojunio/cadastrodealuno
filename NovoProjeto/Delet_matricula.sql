@@ -1,1 +1,1 @@
-DELETE FROM Aluno WHERE matricula = 21
+DELETE FROM Aluno WHERE nomePai = ""

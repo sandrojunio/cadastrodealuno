@@ -103,15 +103,17 @@ def btCadastrarAluno(self):
         a.emailAluno = Aluno.emailAluno.text()
         a.enderecoAluno = Aluno.enderecoAluno.text()
 
-        # Executando a função de inserção no manco de dados. 
-        a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)    
+        # Executando a função de inserção no manco de dados.
+        if (Aluno.nomeAluno.text() != "" and Aluno.telefoneAluno.text() != "" and Aluno.emailAluno.text() != "" and Aluno.enderecoAluno.text() != ""):
+            a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
+        else:
+            return Aluno.Lb_cadastrado.setText('Erro: Preencha todos os campos obrigatórios!')
+
+        btLimparAluno()
 
         return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
     except:
         return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
-
-    if (Aluno.Lb_cadastrado.text() == "Cadastrado com sucesso!"):
-        btLimparAluno()
 
 #Removendo o valores dos campos através do botão LIMPAR
 def btLimparAluno():
