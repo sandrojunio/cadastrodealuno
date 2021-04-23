@@ -23,4 +23,20 @@ class Cadastro_Aluno:
         except:
             return "Erro ao inserir aluno!"
 
+    def select(self):
 
+        conn = Conexao()
+        conexao = conn.conectar()
+        cursor = conexao.cursor()
+
+        try:
+            #SQL para consultar os dados no banco de dados.
+            sql = 'SELECT * FROM Aluno'
+            resultado = cursor.execute(sql).fetchall()
+
+            cursor.execute(sql)
+            conexao.close()
+
+            return ""
+        except:
+            return "Ops! Ocorreu um erro na consulta dos registros!!"

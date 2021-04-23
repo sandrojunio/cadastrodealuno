@@ -1,5 +1,28 @@
 from PyQt5 import uic, QtWidgets
-from Db_CadastroAluno import Cadastro_Aluno
+from Aluno import Cadastro_Aluno
+from Home import home_db
+
+from PyQt5 import QtGui
+from PyQt5.uic import loadUi
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QDialog, QApplication
+
+def consultarTudo():
+    a = home_db()
+    sql = a.selectAluno()
+
+    Home.tabela.setRowCount(len(sql))
+    row = 0
+    for i in sql:
+        Home.tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(str(i[0])))
+        Home.tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(i[1]))
+        Home.tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(i[2]))
+        Home.tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(i[3]))
+        Home.tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(i[4]))
+        Home.tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(i[5]))
+        Home.tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(i[6]))
+        row=row+1
+
 
 def menu():
     Home.Bt_CadastroAluno.clicked.connect(aluno)
@@ -30,7 +53,18 @@ def menu():
     Consulta.Bt_CadastroAssunto.clicked.connect(assunto)
     Consulta.Bt_CadastroAtividade.clicked.connect(atividade)
     Consulta.Bt_CadastroDesempenho.clicked.connect(desempenho)
-    Consulta.Bt_CadastroConsulta.clicked.connect(consulta)
+    Consulta.Bt_CadastroConsulta.clicked.connect(consulta)  
+
+    Home.tabela.setColumnWidth(0,120)
+    Home.tabela.setColumnWidth(1,125)
+    Home.tabela.setColumnWidth(2,124)
+    Home.tabela.setColumnWidth(3,125)
+    Home.tabela.setColumnWidth(4,125)
+    Home.tabela.setColumnWidth(5,200)
+    Home.tabela.setColumnWidth(6,200)
+    
+
+    consultarTudo()
 
 def aluno():
     menu()
@@ -55,7 +89,7 @@ def aluno():
 # Evento de cadastrar
 def btCadastrarAluno(self):
     
-    # Chamando a classe #Db_CadastroAluno
+    # Chamando a classe #aluno
     a = Cadastro_Aluno()
 
     # Try, para avisar dos errinhos e.e
@@ -70,11 +104,14 @@ def btCadastrarAluno(self):
         a.enderecoAluno = Aluno.enderecoAluno.text()
 
         # Executando a função de inserção no manco de dados. 
-        a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)
+        a.insert(a.nomeAluno, a.nomePai, a.nomeMae, a.telefoneAluno, a.emailAluno, a.enderecoAluno)    
 
         return Aluno.Lb_cadastrado.setText('Cadastrado com sucesso!')
     except:
         return Aluno.Lb_cadastrado.setText('Erro no cadastro!')
+
+    if (Aluno.Lb_cadastrado.text() == "Cadastrado com sucesso!"):
+        btLimparAluno()
 
 #Removendo o valores dos campos através do botão LIMPAR
 def btLimparAluno():
@@ -84,7 +121,6 @@ def btLimparAluno():
     Aluno.telefoneAluno.setText('')
     Aluno.emailAluno.setText('')
     Aluno.enderecoAluno.setText('')
-
     
 def assunto():
     menu()
@@ -106,9 +142,9 @@ def atividade():
 
 def desempenho():
     menu()
-    Assunto.show() # Está sem exibição para esse modulo
+    Home.show() # Está sem exibição para esse modulo
 
-    Home.close()
+    Assunto.close()
     Aluno.close()
     Consulta.close()
 
